@@ -7,8 +7,8 @@ import Nav from "@/components/Nav";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"], 
-  variable: "--font-inter", 
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-inter",
   display: "swap",
 });
 

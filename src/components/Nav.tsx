@@ -24,6 +24,16 @@ const Nav = () => {
         </div>
 
         <div className="flex items-center gap-4 ">
+          <Link
+            href={"/dashboard"}
+            className={`text-sm hover:text-accent ${
+              pathname == "/dashboard"
+                ? "text-accent"
+                : "text-black dark:text-white"
+            }`}
+          >
+            Dashboard
+          </Link>
           <a
             href="https://github.com/peyush-nuwal/readme-forge"
             className="text-sm text-black dark:text-white hover:text-accent"
