@@ -24,6 +24,7 @@ const Nav = () => {
         </div>
 
         <div className="flex items-center gap-4 ">
+          {/* ---dashboard--- */}
           <Link
             href={"/dashboard"}
             className={`text-sm hover:text-accent ${
@@ -34,12 +35,15 @@ const Nav = () => {
           >
             Dashboard
           </Link>
+          {/* ---github--- */}
           <a
             href="https://github.com/peyush-nuwal/readme-forge"
             className="text-sm text-black dark:text-white hover:text-accent"
           >
-            Source
+            Github
           </a>
+
+          {/* ---contact--- */}
           <Link
             href={"/contact"}
             className={`text-sm hover:text-accent ${

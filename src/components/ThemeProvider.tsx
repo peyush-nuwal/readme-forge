@@ -36,7 +36,7 @@ useEffect(() => {
 
   localStorage.setItem("theme", theme);
 }, [theme]);
-     console.log(theme)
+   
     
     const toggleTheme = () => {
         setTheme((prevTheme)=>(prevTheme==="light"?"dark":"light"))

@@ -31,10 +31,10 @@ body {
 
 @layer component{
    .btn{
-     @apply px-4 py-2 h-fit w-fit text-lg rounded-lg transition-all ease-in duration-300 cursor-pointer
+     @apply px-6 py-2 h-fit w-fit  rounded-lg transition-all ease-in duration-300 cursor-pointer
    }
    .btn-primary{
-     @apply bg-accent text-white 
+     @apply bg-accent text-white  
    }
      .btn-outline{
      @apply bg-transparent text-accent hover:bg-accent hover:text-white border border-accent 
@@ -60,6 +60,41 @@ body {
   );
 }
 
+
+/* Firefox */
+/* Firefox — closest approximation (can't do exact 1px) */
+/* Firefox — as close as possible */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 100, 100, 0.4) transparent;
+}
+
+/* WebKit (Chrome, Safari, Edge) */
+*::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.4);
+  border-radius: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  border: none;
+}
+/* Chrome, Safari, Edge */
+.no-scrollbar::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+/* Firefox */
+.no-scrollbar {
+  scrollbar-width: none; /* hide scrollbar in Firefox */
+  -ms-overflow-style: none; /* IE/Edge Legacy */
+}
 
 
 
@@ -215,38 +250,38 @@ body {
   }
 
   #cloud-1 {
-    left: 30px;
-    top: 15px;
-    width: 40px;
+    left: 22px;
+    top: 3px;
+    width: 60px;
   }
 
   #cloud-2 {
-    left: 44px;
-    top: 10px;
-    width: 20px;
+    left: 34px;
+    top: 2px;
+    width: 25px;
   }
 
   #cloud-3 {
     left: 18px;
-    top: 24px;
+    top: 11px;
     width: 30px;
   }
 
   #cloud-4 {
-    left: 36px;
-    top: 18px;
-    width: 40px;
+    left: 18px;
+    top: 10px;
+    width: 29px;
   }
 
   #cloud-5 {
-    left: 48px;
-    top: 14px;
+    left: 35px;
+    top: 4px;
     width: 20px;
   }
 
   #cloud-6 {
-    left: 22px;
-    top: 26px;
+    left: 1px;
+    top: 12px;
     width: 30px;
   }
 
