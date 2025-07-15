@@ -31,7 +31,7 @@ body {
 
 @layer component{
    .btn{
-     @apply px-6 py-2 h-fit w-fit  rounded-lg transition-all ease-in duration-300 cursor-pointer
+     @apply px-4 py-2 h-fit w-fit  rounded-lg transition-all ease-in duration-300 cursor-pointer
    }
    .btn-primary{
      @apply bg-accent text-white  
@@ -96,7 +96,74 @@ body {
   -ms-overflow-style: none; /* IE/Edge Legacy */
 }
 
+.wmde-markdown {
+  height: 100%;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
 
+.dark .wmde-markdown {
+  background-color: #262626 !important;
+  color: #ffffff !important;
+}
+
+/* Code blocks */
+.wmde-markdown pre,
+.wmde-markdown code {
+  background-color: #f4f4f4 !important;
+  color: #000000 !important;
+}
+
+.dark .wmde-markdown pre,
+.dark .wmde-markdown code {
+  background-color: #1f1f1f !important;
+  color: #ffffff !important;
+}
+
+/* Blockquotes */
+.wmde-markdown blockquote {
+  border-left: 4px solid #ccc;
+  background-color: #f9f9f9;
+  padding: 0.5em 1em;
+  color: #444;
+}
+
+.dark .wmde-markdown blockquote {
+  border-left: 4px solid #555;
+  background-color: #333;
+  color: #ddd;
+}
+
+/* Tables */
+.wmde-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.wmde-markdown th,
+.wmde-markdown td {
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  background-color: #ffffff;
+  color: #000;
+}
+
+.dark .wmde-markdown th,
+.dark .wmde-markdown td {
+  border: 1px solid #555;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Links */
+.wmde-markdown a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.dark .wmde-markdown a {
+  color: #66bfff;
+}
 
 .switch {
     position: relative;

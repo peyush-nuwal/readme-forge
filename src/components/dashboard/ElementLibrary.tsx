@@ -12,18 +12,31 @@ const ElementLibrary = ({value}:{value:string}) => {
   const [formOpen, setFormOpen] = useState<boolean>(false);
   const addElement = useElementStore((state) => state.addElement);
   const selectedElements = useElementStore((state) => state.selectedElements);
+  const setSelected = useElementStore((state) => state.setSelected);
   ;
-  
-   const availableElements = predefinedElements.filter(
-     (pre) =>
-       !selectedElements.some(
-         (sel) => sel.originalId === pre.id || sel.id === pre.id
-       )
-   );
-   
+  const availableElements = predefinedElements
+    .filter(
+      (pre) =>
+        !selectedElements.some(
+          (sel) => sel.originalId === pre.id || sel.id === pre.id
+        )
+    )
+    .sort((a, b) => a.title.localeCompare(b.title)); // ✅ Sort alphabetically by title
+
   const filteredElements = availableElements.filter((pre) =>
-    pre.title.toLocaleLowerCase().includes(value.toLocaleLowerCase())
+    pre.title.toLowerCase().includes(value.toLowerCase())
   );
+
+  const handleSelectElement = (ele:ReadmeElement) => {
+    
+    addElement(ele);
+     setTimeout(() => {
+       const last = useElementStore.getState().selectedElements.at(-1);
+       if (last) {
+         setSelected(last.id); // select the one just added
+       }
+     }, 300);
+  }
           
   return (
     <div className="">
@@ -42,7 +55,7 @@ const ElementLibrary = ({value}:{value:string}) => {
         {filteredElements.map((ele) => (
           <Element
             key={ele.id}
-            onClick={() => addElement(ele)}
+            onClick={() => handleSelectElement(ele)}
             title={ele.title}
           />
         ))}
