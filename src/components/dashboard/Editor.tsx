@@ -33,11 +33,15 @@ useEffect(() => {
   if (selected.content !== markdown) {
     setMarkdown(selected.content || "");
   }
-}, [selectedId, selectedElements, setSelected]);
+}, [selectedId, selectedElements]);
    
 useEffect(() => {
-  updateSelectedElement({ content: markdown });
-}, [markdown, updateSelectedElement]);
+  const timeout = setTimeout(() => {
+    updateSelectedElement({ content: markdown });
+  }, 300); 
+
+  return () => clearTimeout(timeout); 
+}, [markdown]);
 
   return (
     <div className="col-span-24 sm:col-span-14 lg:col-span-8 h-full px-4 py-6 bg-black rounded-xl shadow-sm  overflow-y-hidden">

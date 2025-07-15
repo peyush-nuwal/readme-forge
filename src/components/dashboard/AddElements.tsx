@@ -8,7 +8,7 @@ const AddElements = () => {
    
     
   return (
-    <div className="my-4">
+    <div data-testid="add-elements-container" className="my-4">
       {/* ---heading--- */}
       <h6 className="text-[10px] font-light text-gray-500 dark:text-stone-500">
         Click on a section below to add it to Readme.

@@ -11,10 +11,12 @@ import { predefinedElements } from "@/lib/data";
 const SelectedElement = () => {
   const selectedElements = useElementStore((state) => state.selectedElements);
   const setElements = useElementStore((state) => state.setElements);
- 
 
   return (
-    <div className="my-5 overflow-x-clip">
+    <div
+      data-testid="selected-element-container"
+      className="my-5 overflow-x-clip"
+    >
       {selectedElements.length === 0 ? (
         <div className="text-center text-sm text-gray-500 dark:text-gray-400 py-8">
           No sections added yet. <br />
@@ -39,7 +41,6 @@ const SelectedElement = () => {
 export default SelectedElement;
 
 const Item = ({ id, name }: { id: string; name: string }) => {
-  
   const removeElement = useElementStore((state) => state.removeElement);
   const setSelected = useElementStore((state) => state.setSelected);
   const selectedId = useElementStore((state) => state.selectedId);
@@ -51,30 +52,30 @@ const Item = ({ id, name }: { id: string; name: string }) => {
   );
 
   const handleDeleteElement = () => {
-
     removeElement(id);
   };
 
-    const handleSelect = (e: React.MouseEvent) => {
-      e.stopPropagation(); // Stop from bubbling to drag
-      setSelected(id);
+  const handleSelect = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Stop from bubbling to drag
+    setSelected(id);
   };
-  
 
   const isSelected = selectedId === id;
 
   // updateSelectedElement({ content: markdown });
-  
+
   const resetElement = () => {
     const currentElement = getSelectedElement();
-     setSelected(id)
-    const originalElement = predefinedElements.find((item) => item.id === currentElement?.originalId);
-     updateSelectedElement({ content: originalElement?.content });
-  }
-  
+    setSelected(id);
+    const originalElement = predefinedElements.find(
+      (item) => item.id === currentElement?.originalId
+    );
+    updateSelectedElement({ content: originalElement?.content });
+  };
 
   return (
     <div
+      data-testid="selected-element-item"
       onClick={handleSelect}
       className={`flex items-center justify-between text-sm px-2 py-2 border bg-slate-100 dark:bg-zinc-900 ${
         isSelected ? "border-accent" : "border-stone-300 dark:border-zinc-700 "
@@ -91,6 +92,7 @@ const Item = ({ id, name }: { id: string; name: string }) => {
         {/* ---reset icons---  */}
 
         <div
+          data-testid="reset-icon"
           onPointerDown={(e) => e.stopPropagation()}
           onClick={resetElement}
           className="relative group"
@@ -101,6 +103,7 @@ const Item = ({ id, name }: { id: string; name: string }) => {
 
         {/* ---delete icons---  */}
         <div
+          data-testid="delete-icon"
           onPointerDown={(e) => e.stopPropagation()}
           onClick={handleDeleteElement}
           className="relative "

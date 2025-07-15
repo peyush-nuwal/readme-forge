@@ -39,6 +39,8 @@ const Nav = () => {
           <a
             href="https://github.com/peyush-nuwal/readme-forge"
             className="text-sm text-black dark:text-white hover:text-accent"
+            target="_blank" // ✅ This is the fix
+            rel="noopener noreferrer"
           >
             Github
           </a>

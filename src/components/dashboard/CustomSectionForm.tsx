@@ -32,7 +32,10 @@ const CustomSectionForm = ({ open, close }: CustomSectionFormProps) => {
   }
   return (
     open && (
-      <div className="fixed top-0 left-0 z-[999] h-screen w-screen bg-neutral-950/10 flex items-center justify-center">
+      <div
+        data-testid="custom-section-form"
+        className="fixed top-0 left-0 z-[999] h-screen w-screen bg-neutral-950/10 flex items-center justify-center"
+      >
         {/* ---main-form---    */}
         <div
           ref={formRef}
@@ -49,6 +52,7 @@ const CustomSectionForm = ({ open, close }: CustomSectionFormProps) => {
           </h1>
 
           <Input
+            
             placeholder="Enter section name e.g. Header"
             value={value}
             onChange={(e) => setValue(e.target.value)}

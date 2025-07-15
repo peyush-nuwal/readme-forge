@@ -9,6 +9,7 @@ const Input = ({ value, onChange, placeholder }: InputProps) => {
   return (
     <div>
       <input
+        data-testid="Input"
         type="text"
         value={value}
         onChange={onChange}

@@ -3,8 +3,8 @@ import React from "react";
 import { useTheme } from "../ThemeProvider";
 
 
-const Switch = () => { 
-    const { theme, toggleTheme } = useTheme();
+const ThemeToggle = () => {
+  const { theme, toggleTheme } = useTheme();
   return (
     <label className="switch">
       <input
@@ -13,6 +13,7 @@ const Switch = () => {
         checked={theme === "dark"}
         onChange={toggleTheme}
         aria-label="Toggle dark mode"
+        data-testid="theme-toggle"
       />
       <div className="slider round">
         <div className="sun-moon">
@@ -72,6 +73,4 @@ const Switch = () => {
   );
 };
 
-
-
-export default Switch;
+export default ThemeToggle;
