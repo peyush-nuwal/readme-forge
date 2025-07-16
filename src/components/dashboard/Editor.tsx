@@ -18,7 +18,6 @@ const Editor = () => {
   const [markdown, setMarkdown] = useState<string>(selectedElements[0]?.content);
   
 
-
 useEffect(() => {
   if (selectedElements.length === 0) return;
 
@@ -44,7 +43,7 @@ useEffect(() => {
 }, [markdown]);
 
   return (
-    <div className="col-span-24 sm:col-span-14 lg:col-span-8 h-full px-4 py-6 bg-black rounded-xl shadow-sm  overflow-y-hidden">
+    <div data-testid="dashboard-editor" className="col-span-24 sm:col-span-14 lg:col-span-8 h-full px-4 py-6 bg-black rounded-xl shadow-sm  overflow-y-hidden">
       <h4 className="text-base text-accent mb-2">Editor</h4>
       <div className="max-h-[95%] text-white py-2 overflow-y-auto no-scrollbar">
         <CodeEditor

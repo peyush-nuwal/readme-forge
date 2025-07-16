@@ -31,7 +31,11 @@ const Preview = () => {
       </div>
 
       <div className="max-h-[90%] prose dark:prose-invert max-w-none overflow-y-auto  my-4 ">
-        <MarkdownPreview source={contents} style={{ padding: 16 }} />
+        <MarkdownPreview
+          data-testid="markdown-preview"
+          source={contents}
+          style={{ padding: 16 }}
+        />
       </div>
     </div>
   );
