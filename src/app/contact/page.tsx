@@ -1,10 +1,11 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, {  useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin, FaTwitter, FaGlobe } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { FaRegCopy } from "react-icons/fa";
-import emailjs from "emailjs-com";
+import ContactForm from "@/components/ContactForm";
+
 
 const contactInfo = [
   {
@@ -50,9 +51,10 @@ const contactInfo = [
 ];
 
 const Page = () => {
-  const formRef = useRef<HTMLFormElement>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
-  const [status, setStatus] = useState("");
+  
+
+  // console.log(formRef.current)
   const handleCopy = (id: string, value: string) => {
     navigator.clipboard.writeText(value);
     setCopiedId(id);
@@ -61,30 +63,7 @@ const Page = () => {
     }, 1500); // 1.5s
   };
 
-  // Inside your component
- const handleSendMail = (e: React.FormEvent<HTMLFormElement>) => {
-   e.preventDefault();
 
-   if (!formRef.current) return;
-
-   emailjs
-     .sendForm(
-       "service_gxe293x",
-       "your_template_id",
-       formRef.current,
-       "your_user_id" // or public key
-     )
-     .then(
-       () => {
-         setStatus("Message sent successfully!");
-         formRef.current?.reset();
-       },
-       (error) => {
-         console.error("Email sending failed:", error);
-         setStatus("Something went wrong. Try again!");
-       }
-     );
- };
   return (
     <div className=" px-6 py-8 flex flex-col items-center justify-center min-h-screen p-4 dark:bg-foreground">
       <div className="w-full h-[30vh] max-w-md flex flex-col items-center justify-center space-y-4">
@@ -152,66 +131,7 @@ const Page = () => {
           <h2 className="text-2xl text-accent font-medium mb-4">
             Send a Message
           </h2>
-          <form
-            ref={formRef}
-            onSubmit={handleSendMail}
-            className="space-y-4 grid grid-cols-2 gap-2 "
-          >
-            {/* ---name field --- */}
-            <div className="col-span-2 lg:col-span-1">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                Name
-              </label>
-              <input
-                type="text"
-                name="user_name"
-                className="w-full p-2 text-black dark:text-white border-b-2 border-b-gray-300  dark:bg-neutral-800 dark:border-b-neutral-700 focus:outline-none focus:border-b-2 focus:border-b-accent dark:placeholder:text-gray-600"
-                placeholder="Your Name"
-              />
-            </div>
-            {/* ---email field --- */}
-            <div className="col-span-2 lg:col-span-1">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                Email
-              </label>
-              <input
-                type="email"
-                name="user_email"
-                required
-                className="w-full p-2 text-black dark:text-white border-b-2 border-b-gray-300  dark:bg-neutral-800 dark:border-b-neutral-700 focus:outline-none focus:border-b-2 focus:border-b-accent dark:placeholder:text-gray-600"
-                placeholder="Your Email"
-              />
-            </div>
-            {/* ---subject  --- */}
-            <div className="col-span-2 ">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                Subject
-              </label>
-              <input
-                type="subject"
-                name="subject"
-                className="w-full p-2 text-black dark:text-white border-b-2 border-b-gray-300  dark:bg-neutral-800 dark:border-b-neutral-700 focus:outline-none focus:border-b-2 focus:border-b-accent dark:placeholder:text-gray-600"
-                placeholder="Subject of your message"
-              />
-            </div>
-            {/* ---message field --- */}
-            <div className="col-span-2 ">
-              <label className="block text-sm font-medium text-gray-400 dark:text-gray-400">
-                Message
-              </label>
-              <textarea
-                rows={4}
-                name="message"
-                className="w-full p-2 text-black dark:text-white border-b-2 border-b-gray-300   dark:border-b-neutral-700 focus:outline-none focus:border-b-2 focus:border-b-accent  dark:placeholder:text-gray-600
-                "
-                placeholder="Write your message here..."
-              ></textarea>
-            </div>
-            <button type="submit" className="w-full md:w-fit btn btn-primary">
-              Send Message
-            </button>
-          </form>
-          {status && <p className="col-span-2 text-sm">{status}</p>}
+          <ContactForm/>
         </div>
       </div>
     </div>
