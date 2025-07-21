@@ -1,7 +1,10 @@
+'use client'
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import { useTheme } from "../ThemeProvider";
 const Hero = () => {
+ const {theme}= useTheme()
   return (
     <div className="min-h-screen flex flex-col  items-center  justify-center mt-20 lg:mt-0 gap-10 lg:gap-0 ">
       {/*----left-side----  */}
@@ -25,9 +28,9 @@ const Hero = () => {
         </div>
       </div>
       {/*----right-side----  */}
-      <div className=" lg:w-9/10 h-full  ">
+      <div className=" lg:w-9/10 h-full bg-white dark:bg-neutral-800 dark:border border-neutral-700 rounded-2xl p-4 ">
         <Image
-          src="/dashboard.png"
+          src={theme === "dark" ? "/dashboard-dark.png" : "/dashboard.png"}
           alt="dashobard"
           width={700}
           height={500}

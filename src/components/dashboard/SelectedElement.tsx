@@ -6,6 +6,7 @@ import { HiOutlineTrash } from "react-icons/hi2";
 // import Tooltip from '../ui/Tooltip';
 import useElementStore from "@/store/useElementStore";
 import { predefinedElements } from "@/lib/data";
+import Tooltip from "../ui/Tooltip";
 
 
 const SelectedElement = () => {
@@ -91,26 +92,28 @@ const Item = ({ id, name }: { id: string; name: string }) => {
       <span className="p-1 flex items-center gap-2  text-stone-500 dark:text-gray-400   cursor-pointer ">
         {/* ---reset icons---  */}
 
-        <div
-          data-testid="reset-icon"
-          onPointerDown={(e) => e.stopPropagation()}
-          onClick={resetElement}
-          className="relative group"
-        >
-          <RiRefreshLine className="relative text-sm transform origin-center hover:rotate-180 group-hover:scale-105 transition-transform ease-in-out duration-300 hover:text-black hover:dark:text-gray-200 " />
-          {/* <Tooltip text="Reset" /> */}
-        </div>
+        <Tooltip text="Reset">
+          <div
+            data-testid="reset-icon"
+            onPointerDown={(e) => e.stopPropagation()}
+            onClick={resetElement}
+            className="relative group"
+          >
+            <RiRefreshLine className="relative text-sm transform origin-center hover:rotate-180 group-hover:scale-105 transition-transform ease-in-out duration-300 hover:text-black hover:dark:text-gray-200" />
+          </div>
+        </Tooltip>
 
         {/* ---delete icons---  */}
-        <div
-          data-testid="delete-icon"
-          onPointerDown={(e) => e.stopPropagation()}
-          onClick={handleDeleteElement}
-          className="relative "
-        >
-          <HiOutlineTrash className="text-sm transform origin-center hover:-translate-y-[2px] group-hover:scale-105 transition-transform ease-in-out duration-300  hover:dark:text-gray-200  " />
-          {/* <Tooltip text="Delete" /> */}
-        </div>
+        <Tooltip text="Delete">
+          <div
+            data-testid="delete-icon"
+            onPointerDown={(e) => e.stopPropagation()}
+            onClick={handleDeleteElement}
+            className="relative "
+          >
+            <HiOutlineTrash className="text-sm transform origin-center hover:-translate-y-[2px] group-hover:scale-105 transition-transform ease-in-out duration-300  hover:dark:text-gray-200  " />
+          </div>
+        </Tooltip>
       </span>
     </div>
   );
