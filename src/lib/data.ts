@@ -596,4 +596,31 @@ Track key changes and feature milestones:
 We are committed to fostering an inclusive and respectful community. Please read our [Code of Conduct](./CODE_OF_CONDUCT.md) to understand the expectations for all contributors and users.
 `,
   },
+  {
+  id: "readme__folder-structure",
+  title: "Folder Structure",
+  content: `## 📁 Folder Structure
+
+Here's how the project is organized:
+
+\`\`\`
+.
+├── public/              # Static files (images, icons, videos, etc.)
+├── src/
+│   ├── components/      # Reusable UI components
+│   ├── pages/           # Page-level components / routes
+│   ├── hooks/           # Custom React hooks
+│   ├── utils/           # Utility functions/helpers
+│   ├── lib/             # API clients, constants, or shared logic
+│   └── styles/          # Global and modular styles
+├── .env                 # Environment variables
+├── .gitignore           # Git ignored files
+├── package.json         # Project metadata and dependencies
+└── README.md            # You're reading it!
+\`\`\`
+
+> 🧠 Keep things modular — structure should scale as your app grows.
+`,
+}
+
 ];
