@@ -50,9 +50,7 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
       noimageindex: false,
-      maxVideoPreview: -1,
-      maxImagePreview: "large",
-      maxSnippet: -1,
+      
     },
   },
   openGraph: {
